@@ -3,13 +3,12 @@
 #include <stdarg.h>
 #include "fb3-1.h"
 
-struct ast *
-newast (int nodetype, struct ast *l, struct ast *r)
+struct ast *newast (int nodetype, struct ast *l, struct ast *r)
 {
-	struct ast *a = malloc (sizeof(struct ast));
+	struct ast *a = malloc(sizeof(struct ast));
 
 	if(!a) {
-		yyerror ("out of space");
+		yyerror("out of space");
 		exit(0);
 	}
 	a->nodetype = nodetype;
@@ -37,7 +36,6 @@ double eval(struct ast *a)
 
 	switch(a->nodetype) {
 		case 'K': v = ((struct numval *)a)->number; break;
-
 		case '+': v = eval(a->l) + eval(a->r); break;
 		case '-': v = eval(a->l) - eval(a->r); break;
 		case '*': v = eval(a->l) * eval(a->r); break;
@@ -63,6 +61,7 @@ void treefree(struct ast *a)
 		case '|':
 		case 'M':
 			treefree(a->l);
+
 		case 'K':
 			free(a);
 			break;
@@ -77,7 +76,7 @@ void yyerror(char *s, ...)
 	va_start(ap, s);
 
 	fprintf(stderr, "%d: error: ", yylineno);
-	vprintf(stderr, s, ap);
+	vfprintf(stderr, s, ap);
 	fprintf(stderr, "\n");
 }
 

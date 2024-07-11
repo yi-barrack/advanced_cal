@@ -1079,7 +1079,7 @@ yyreduce:
 		printf("= %4.4g\n", eval((yyvsp[-1].a)));
 		treefree((yyvsp[-1].a));
 		printf("> ");
-	}
+		}
 #line 1084 "fb3-1.tab.c"
     break;
 
@@ -1091,19 +1091,19 @@ yyreduce:
 
   case 6: /* exp: exp '+' factor  */
 #line 34 "fb3-1.y"
-                         {(yyval.a) = newast("+", (yyvsp[-2].a), (yyvsp[0].a)); }
+                         { (yyval.a) = newast('+', (yyvsp[-2].a), (yyvsp[0].a)); }
 #line 1096 "fb3-1.tab.c"
     break;
 
   case 7: /* exp: exp '-' factor  */
 #line 35 "fb3-1.y"
-                         {(yyval.a) = newast("-", (yyvsp[-2].a), (yyvsp[0].a)); }
+                         { (yyval.a) = newast('-', (yyvsp[-2].a), (yyvsp[0].a)); }
 #line 1102 "fb3-1.tab.c"
     break;
 
   case 9: /* factor: factor '*' term  */
 #line 39 "fb3-1.y"
-                          { (yyval.a) = newast('*', (yyvsp[-2].a), (yyvsp[0].a));}
+                          { (yyval.a) = newast('*', (yyvsp[-2].a), (yyvsp[0].a)); }
 #line 1108 "fb3-1.tab.c"
     break;
 

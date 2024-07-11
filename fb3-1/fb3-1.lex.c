@@ -788,35 +788,35 @@ case 6:
 case 7:
 YY_RULE_SETUP
 #line 18 "fb3-1.l"
-{return yytext[0];}
+{ return yytext[0]; }
 	YY_BREAK
 case 8:
 #line 20 "fb3-1.l"
 case 9:
 YY_RULE_SETUP
 #line 20 "fb3-1.l"
-{ yylval.d = atof(yytext); return NUMBER;}
+{ yylval.d = atof(yytext); return NUMBER; }
 	YY_BREAK
 case 10:
 /* rule 10 can match eol */
 YY_RULE_SETUP
 #line 22 "fb3-1.l"
-{return EOL;}
+{ return EOL; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 23 "fb3-1.l"
-{}
+{ }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 24 "fb3-1.l"
-{}
+{ }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 25 "fb3-1.l"
-{yyerror("Mystery character %c\n", *yytext);}
+{ yyerror("Mystery character %c\n", *yytext); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
