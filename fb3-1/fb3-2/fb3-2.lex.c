@@ -1,6 +1,6 @@
-#line 1 "fb3-2.lex.c"
+#line 2 "fb3-2.lex.c"
 
-#line 3 "fb3-2.lex.c"
+#line 4 "fb3-2.lex.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -522,8 +522,8 @@ char *yytext;
 #line 5 "fb3-2.l"
 #include "fb3-2.h"
 #include "fb3-2.tab.h"
-#line 525 "fb3-2.lex.c"
 #line 526 "fb3-2.lex.c"
+#line 527 "fb3-2.lex.c"
 
 #define INITIAL 0
 
@@ -742,7 +742,7 @@ YY_DECL
 	{
 #line 11 "fb3-2.l"
 
-#line 745 "fb3-2.lex.c"
+#line 746 "fb3-2.lex.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -956,7 +956,7 @@ YY_RULE_SETUP
 #line 50 "fb3-2.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 959 "fb3-2.lex.c"
+#line 960 "fb3-2.lex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

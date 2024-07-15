@@ -17,7 +17,7 @@
 %token <fn> FUNC
 %token EOL
 
-// 조건문들
+
 %token IF THEN ELSE WHILE DO LET
 
 %nonassoc <fn> CMP

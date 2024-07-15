@@ -5,13 +5,21 @@
 #include <math.h>
 #include "fb3-2.h"
 
-
 static unsigned symhash(char *sym){
 	unsigned int hash = 0;
-	unsigned C;
-
-	while(c = *sym++) hash = hash*9 ^ c;
+	unsigned c;
+	while(c = *sym++)
+		hash = hash*9 ^ c;
 	return hash;
+}
+
+void yyerror(char *s, ...) {
+	va_list ap;
+	va_start(ap, s);
+	fprintf(stderr, "error: ");
+	vfprintf(stderr, s, ap);
+	fprintf(stderr, "\n");
+	va_end(ap);
 }
 
 struct symbol *lookup(char* sym)
@@ -161,7 +169,7 @@ void treefree(struct ast *a)
 			treefree(a->r);
 		case '|':
 		case 'M': case 'C': case 'F':
-			treefree(a->1);
+			treefree(a->l);
 
 		case 'K': case 'N':
 			break;
@@ -244,7 +252,7 @@ eval(struct ast *a)
 				  if( ((struct flow *)a)->el) {
 					  v = eval(((struct flow *)a)->el);
 				  } else
-			  } else
+			  
 				  v = 0.0; 
 	}
 	break;
@@ -295,8 +303,7 @@ void dodef(struct symbol *name, struct symlist *syms, struct ast *func)
 	name->func = func;
 }
 
-	static double
-calluser(struct ufncall *f)
+static double calluser(struct ufncall *f)
 {
 	struct symbol *fn = f->s; /* function name */
 	struct symlist *sl; /* dummy arguments */
@@ -356,4 +363,9 @@ calluser(struct ufncall *f)
 	}
 	free(oldval);
 	return v;
+}
+
+int main(){
+	printf("> ");
+	return yyparse();
 }

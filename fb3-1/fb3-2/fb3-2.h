@@ -47,8 +47,8 @@ enum bifs {
 
 struct ast {
 	int nodetype;
-	struct ast *l
-		struct ast *r;
+	struct ast *l;
+	struct ast *r;
 };
 
 struct fncall {
