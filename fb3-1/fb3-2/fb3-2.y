@@ -34,7 +34,8 @@
 
 stmt: IF exp THEN list	{ $$ = newflow('I', $2, $4, NULL); }
     | IF exp THEN list ELSE list	{ $$ = newflow('I', $2, $4, $6); }
-	| WHILE exp DO list	{ $$ = newflow('W', $2, $4, NULL); }
+	|WHILE exp DO list	{ $$ = newflow('W', $2, $4, NULL); }
+	| exp
 ;
 
 list: /* 나띵 */ { $$ = NULL; }
@@ -59,9 +60,11 @@ exp: exp CMP exp { $$ = newcmp($2, $1, $3); }
  | FUNC '(' explist ')' { $$ = newfunc($1, $3); }
  | NAME '(' explist ')' { $$ = newcall($1, $3); }
 ;
+
 explist: exp
  | exp ',' explist { $$ = newast('L', $1, $3); }
 ;
+
 symlist: NAME { $$ = newsymlist($1, NULL); }
  | NAME ',' symlist { $$ = newsymlist($1, $3); }
 ;
@@ -77,6 +80,4 @@ calclist: /*nothing*/
 				printf("Defined %s\n> ", $3->name); }
 	| calclist error EOL { yyerrok; printf("> "); }
 ;
-%%
-
 

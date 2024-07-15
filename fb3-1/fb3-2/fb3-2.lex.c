@@ -918,42 +918,42 @@ YY_RULE_SETUP
 { yylval.s = lookup(yytext); return NAME; }
 	YY_BREAK
 case 28:
-#line 44 "fb3-2.l"
+#line 45 "fb3-2.l"
 case 29:
 YY_RULE_SETUP
-#line 44 "fb3-2.l"
+#line 45 "fb3-2.l"
 { yylval.d = atof(yytext); return NUMBER; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 45 "fb3-2.l"
+#line 47 "fb3-2.l"
 
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 46 "fb3-2.l"
+#line 48 "fb3-2.l"
 /* ignore whitespace */
 	YY_BREAK
 case 32:
 /* rule 32 can match eol */
 YY_RULE_SETUP
-#line 47 "fb3-2.l"
+#line 50 "fb3-2.l"
 { printf("c> "); } /* ignore line continuation */
 	YY_BREAK
 case 33:
 /* rule 33 can match eol */
 YY_RULE_SETUP
-#line 48 "fb3-2.l"
+#line 52 "fb3-2.l"
 { return EOL; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 49 "fb3-2.l"
+#line 54 "fb3-2.l"
 { yyerror("Mystery character %c\n", *yytext); }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 50 "fb3-2.l"
+#line 55 "fb3-2.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
 #line 960 "fb3-2.lex.c"
@@ -1973,7 +1973,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 50 "fb3-2.l"
+#line 55 "fb3-2.l"
 
 
 

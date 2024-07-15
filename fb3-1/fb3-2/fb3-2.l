@@ -40,12 +40,17 @@ EXP	([Ee][-+]?[0-9]+)
 "print" { yylval.fn = B_print; return FUNC; }
 
 [a-zA-Z][a-zA-Z0-9]* { yylval.s = lookup(yytext); return NAME; }
+
 [0-9]+"."[0-9]*{EXP}? |
 "."?[0-9]+{EXP}? { yylval.d = atof(yytext); return NUMBER; }
+
 "//".*
 [ \t] /* ignore whitespace */
+
 \\\n { printf("c> "); } /* ignore line continuation */
+
 \n { return EOL; }
+
 . { yyerror("Mystery character %c\n", *yytext); }
 %%
 
